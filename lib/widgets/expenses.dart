@@ -18,14 +18,22 @@ class _ExpensesState extends State<Expenses> {
     Expense(title: 'Cinema', amount: 15.69, date: DateTime.now(), category: Category.leisure),
   ];
 
+  void _openAddExpenseOverlay() {
+    showModalBottomSheet(
+        context: context,
+        builder: (ctx) => const Text('Modal bottom sheet'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Expense Tracker'),
+        backgroundColor: Colors.orangeAccent,
+        foregroundColor: Colors.white,
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: _openAddExpenseOverlay,
               icon: const Icon(Icons.add)
           )
         ],
